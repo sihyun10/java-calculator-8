@@ -4,20 +4,9 @@ import calculator.exception.InvalidInputException;
 
 public class InputValidator {
 
-    private static final String CUSTOM_PREFIX = "//";
     private static final String NEWLINE = "\n";
 
-    public static void validate(String input) {
-        if (input == null) {
-            throw new InvalidInputException("[ERROR] 입력값이 비어있습니다.");
-        }
-        
-        if (input.startsWith(CUSTOM_PREFIX)) {
-            validateCustomDelimiterSyntax(input);
-        }
-    }
-
-    private static void validateCustomDelimiterSyntax(String input) {
+    public static void validateCustomDelimiterSyntax(String input) {
         int nlIdx = input.indexOf(NEWLINE);
 
         if (nlIdx == -1) {
