@@ -8,9 +8,10 @@ public class InputValidator {
     private static final String NEWLINE = "\n";
 
     public static void validate(String input) {
-        if (input == null || input.isBlank()) {
+        if (input == null) {
             throw new InvalidInputException("[ERROR] 입력값이 비어있습니다.");
         }
+        
         if (input.startsWith(CUSTOM_PREFIX)) {
             validateCustomDelimiterSyntax(input);
         }

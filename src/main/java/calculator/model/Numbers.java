@@ -8,6 +8,7 @@ public class Numbers {
 
     public Numbers(List<String> inputs) {
         this.numbers = inputs.stream()
+                .filter(input -> !input.isBlank())
                 .map(Number::new)
                 .toList();
     }
