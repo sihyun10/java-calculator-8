@@ -3,6 +3,7 @@ package calculator.util;
 import static java.util.regex.Pattern.quote;
 
 import calculator.dto.DelimiterResult;
+import calculator.exception.ErrorMessage;
 import calculator.exception.InvalidInputException;
 
 public class DelimiterExtractor {
@@ -23,7 +24,7 @@ public class DelimiterExtractor {
 
     private static String normalizeInput(String input) {
         if (input == null) {
-            throw new InvalidInputException("[ERROR] 입력값이 비어있습니다.");
+            throw new InvalidInputException(ErrorMessage.EMPTY_INPUT);
         }
         return input.replace("\\n", "\n");
     }

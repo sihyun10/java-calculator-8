@@ -1,5 +1,6 @@
 package calculator.util;
 
+import calculator.exception.ErrorMessage;
 import calculator.exception.InvalidInputException;
 
 public class InputValidator {
@@ -10,21 +11,21 @@ public class InputValidator {
         int nlIdx = input.indexOf(NEWLINE);
 
         if (nlIdx == -1) {
-            throw new InvalidInputException("[ERROR] 커스텀 구분자 선언 후 줄바꿈 문자가 없습니다.");
+            throw new InvalidInputException(ErrorMessage.NO_NEWLINE_AFTER_CUSTOM);
         }
 
         String customDelimiter = input.substring(2, nlIdx);
         if (customDelimiter.isEmpty()) {
-            throw new InvalidInputException("[ERROR] 커스텀 구분자가 비어 있습니다.");
+            throw new InvalidInputException(ErrorMessage.EMPTY_CUSTOM_DELIMITER);
         }
 
         if (customDelimiter.length() > 1) {
-            throw new InvalidInputException("[ERROR] 커스텀 구분자는 하나의 문자만 입력할 수 있다.");
+            throw new InvalidInputException(ErrorMessage.MULTIPLE_CHAR_DELIMITER);
         }
 
         String numbersPart = input.substring(nlIdx + 1);
         if (numbersPart.isEmpty()) {
-            throw new InvalidInputException("[ERROR] 커스텀 구분자 지정 후 숫자가 입력되지 않았습니다.");
+            throw new InvalidInputException(ErrorMessage.NO_NUMBER_AFTER_CUSTOM);
         }
     }
 }
