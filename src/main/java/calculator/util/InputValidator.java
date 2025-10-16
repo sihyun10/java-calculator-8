@@ -6,7 +6,7 @@ public class InputValidator {
 
     private static final String NEWLINE = "\n";
 
-    public static void validateCustomDelimiterSyntax(String input) {
+    public static void customDelimiterSyntax(String input) {
         int nlIdx = input.indexOf(NEWLINE);
 
         if (nlIdx == -1) {

@@ -14,7 +14,7 @@ public class DelimiterExtractor {
         String normalizedInput = normalizeInput(input);
 
         if (isCustomDelimiter(normalizedInput)) {
-            InputValidator.validateCustomDelimiterSyntax(normalizedInput);
+            InputValidator.customDelimiterSyntax(normalizedInput);
             return extractCustomDelimiter(normalizedInput);
         }
 
