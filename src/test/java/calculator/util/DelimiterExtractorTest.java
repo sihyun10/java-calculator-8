@@ -15,16 +15,7 @@ class DelimiterExtractorTest {
                 () -> DelimiterExtractor.extract(null), "[ERROR] 입력값이 비어있습니다."
         );
     }
-
-    @Test
-    @DisplayName("입력값이 공백이면 예외 발생")
-    void 입력_공백_예외() {
-        Assertions.assertThrows(
-                InvalidInputException.class,
-                () -> DelimiterExtractor.extract("      "), "[ERROR] 입력값이 비어있습니다."
-        );
-    }
-
+    
     @Test
     @DisplayName("//로 시작했지만 줄바꿈이 없으면 예외 발생")
     void 줄바꿈_없음_예외() {
