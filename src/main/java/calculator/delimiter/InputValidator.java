@@ -1,4 +1,4 @@
-package calculator.util;
+package calculator.delimiter;
 
 import calculator.exception.ErrorMessage;
 import calculator.exception.InvalidInputException;

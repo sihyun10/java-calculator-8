@@ -3,6 +3,7 @@ package calculator.util;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import calculator.delimiter.DelimiterValidator;
 import calculator.exception.ErrorMessage;
 import calculator.exception.InvalidInputException;
 import org.junit.jupiter.api.DisplayName;
@@ -31,7 +32,7 @@ class DelimiterValidatorTest {
         assertThatCode(() -> DelimiterValidator.customDelimiterUsage("1#2#4#5", "#"))
                 .doesNotThrowAnyException();
     }
-    
+
     @Test
     @DisplayName("지정된 커스텀 구분자 이외의 문자를 사용했을 경우 예외 발생")
     void 지정된_커스텀구분자_이외의_문자_사용_예외() {

@@ -1,4 +1,4 @@
-package calculator.util;
+package calculator.delimiter;
 
 import static java.util.regex.Pattern.quote;
 

@@ -1,7 +1,6 @@
 package calculator.delimiter;
 
 import calculator.dto.DelimiterResult;
-import calculator.util.DelimiterValidator;
 
 public class DefaultDelimiterStrategy implements DelimiterStrategy {
 

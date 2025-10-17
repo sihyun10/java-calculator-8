@@ -1,8 +1,5 @@
-package calculator.util;
+package calculator.delimiter;
 
-import calculator.delimiter.CustomDelimiterStrategy;
-import calculator.delimiter.DefaultDelimiterStrategy;
-import calculator.delimiter.DelimiterStrategy;
 import calculator.dto.DelimiterResult;
 import calculator.exception.ErrorMessage;
 import calculator.exception.InvalidInputException;
