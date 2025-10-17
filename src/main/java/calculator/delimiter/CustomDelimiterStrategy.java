@@ -22,8 +22,6 @@ public class CustomDelimiterStrategy implements DelimiterStrategy {
         String customDelimiter = input.substring(2, nlIdx);
         String numbersPart = input.substring(nlIdx + 1);
 
-        DelimiterValidator.customDelimiterUsage(numbersPart, customDelimiter);
-
         return new DelimiterResult(quote(customDelimiter), numbersPart);
     }
 }

@@ -14,7 +14,6 @@ public class DefaultDelimiterStrategy implements DelimiterStrategy {
 
     @Override
     public DelimiterResult extract(String input) {
-        DelimiterValidator.defaultDelimiterUsage(input);
         return new DelimiterResult(DEFAULT_DELIMITER_REGEX, input);
     }
 }

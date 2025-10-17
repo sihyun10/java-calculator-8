@@ -16,6 +16,9 @@ public class Number {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
+            if (input.matches(".*[0-9].*") && input.matches(".*[^0-9].*")) {
+                throw new InvalidInputException(ErrorMessage.INVALID_DELIMITER_USED);
+            }
             throw new InvalidInputException(ErrorMessage.NON_NUMBER + input);
         }
     }
