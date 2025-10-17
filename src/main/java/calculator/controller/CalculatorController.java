@@ -10,10 +10,17 @@ import java.util.Arrays;
 
 public class CalculatorController {
 
+    private final DelimiterExtractor delimiterExtractor;
+
+    public CalculatorController() {
+        this.delimiterExtractor = new DelimiterExtractor();
+    }
+
     public void start() {
         String input = InputView.readInput();
 
-        DelimiterResult delimiterResult = DelimiterExtractor.extract(input);
+        DelimiterResult delimiterResult = delimiterExtractor.extract(input);
+        
         String[] split = StringSplitter.split(
                 delimiterResult.getNumbersPart(),
                 delimiterResult.getDelimiter());
