@@ -1,5 +1,6 @@
 package calculator.model;
 
+import calculator.exception.ErrorMessage;
 import calculator.exception.InvalidInputException;
 
 public class Number {
@@ -15,13 +16,13 @@ public class Number {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new InvalidInputException("[ERROR] 숫자 이외의 값이 포함되어 있습니다: " + input);
+            throw new InvalidInputException(ErrorMessage.NON_NUMBER + input);
         }
     }
 
     private void validate(int value) {
         if (value < 0) {
-            throw new InvalidInputException("[ERROR] 음수는 입력할 수 없습니다: " + value);
+            throw new InvalidInputException(ErrorMessage.NEGATIVE_NUMBER + value);
         }
     }
 
