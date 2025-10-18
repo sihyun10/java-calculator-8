@@ -1,7 +1,9 @@
 package calculator.delimiter;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import calculator.dto.DelimiterResult;
 import calculator.exception.ErrorMessage;
 import calculator.exception.InvalidInputException;
 import org.junit.jupiter.api.DisplayName;
@@ -13,6 +15,24 @@ class DelimiterExtractorTest {
 
     public DelimiterExtractorTest() {
         this.delimiterExtractor = new DelimiterExtractor();
+    }
+
+    @Test
+    @DisplayName("기본 구분자로 구분자 추출 정상 작동")
+    void 기본_구분자로_구분자_추출() {
+        DelimiterResult result = delimiterExtractor.extract("1,2:3,4");
+
+        assertThat(result.getDelimiter()).isEqualTo(",|:");
+        assertThat(result.getNumbersPart()).isEqualTo("1,2:3,4");
+    }
+
+    @Test
+    @DisplayName("커스텀 구분자로 구분자 추출 정상 작동")
+    void 커스텀_구분자로_구분자_추출() {
+        DelimiterResult result = delimiterExtractor.extract("//#\n1#2#3");
+
+        assertThat(result.getDelimiter()).isEqualTo("\\Q#\\E");
+        assertThat(result.getNumbersPart()).isEqualTo("1#2#3");
     }
 
     @Test
