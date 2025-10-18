@@ -1,8 +1,7 @@
-package calculator.util;
+package calculator.delimiter;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import calculator.delimiter.DelimiterExtractor;
 import calculator.exception.ErrorMessage;
 import calculator.exception.InvalidInputException;
 import org.junit.jupiter.api.DisplayName;
