@@ -22,53 +22,25 @@ class CalculatorServiceTest {
     @Test
     @DisplayName("기본 구분자(쉼표, 콜론)로 합계 계산")
     void 기본_구분자로_합계_계산() {
-        // given
-        String input = "3:4,5";
-
-        // when
-        int result = calculatorService.calculate(input);
-
-        // then
-        assertThat(result).isEqualTo(12);
+        assertCalculatedResult("3:4,5", 12);
     }
 
     @Test
     @DisplayName("커스텀 구분자 사용 시 합계 계산")
     void 커스텀_구분자로_합계_계산() {
-        // given
-        String input = "//#\n3#4#5";
-
-        // when
-        int result = calculatorService.calculate(input);
-
-        // then
-        assertThat(result).isEqualTo(12);
+        assertCalculatedResult("//#\n3#4#5", 12);
     }
 
     @Test
     @DisplayName("한 개의 숫자만 입력해도 정상 계산")
     void 한_개의_숫자만_입력() {
-        // given
-        String input = "7";
-
-        // when
-        int result = calculatorService.calculate(input);
-
-        // then
-        assertThat(result).isEqualTo(7);
+        assertCalculatedResult("7", 7);
     }
 
     @Test
     @DisplayName("빈 문자열 입력 시 결과는 0")
     void 빈_문자열_입력() {
-        // given
-        String input = "";
-
-        // when
-        int result = calculatorService.calculate(input);
-
-        // then
-        assertThat(result).isEqualTo(0);
+        assertCalculatedResult("    ", 0);
     }
 
     @Test
@@ -93,5 +65,10 @@ class CalculatorServiceTest {
         assertThatThrownBy(() -> calculatorService.calculate(input))
                 .isInstanceOf(InvalidInputException.class)
                 .hasMessage(ErrorMessage.MULTIPLE_CHAR_DELIMITER);
+    }
+
+    private void assertCalculatedResult(String input, int expected) {
+        int result = calculatorService.calculate(input);
+        assertThat(result).isEqualTo(expected);
     }
 }
