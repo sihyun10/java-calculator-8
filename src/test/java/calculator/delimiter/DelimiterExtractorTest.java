@@ -74,4 +74,12 @@ class DelimiterExtractorTest {
                 .isInstanceOf(InvalidInputException.class)
                 .hasMessage(ErrorMessage.INVALID_CUSTOM_DELIMITER_FORMAT);
     }
+
+    @Test
+    @DisplayName("커스텀 구분자로 기본 구분자를 입력할 경우 예외 발생")
+    void 커스텀구분자_기본구분자로_입력_예외() {
+        assertThatThrownBy(() -> delimiterExtractor.extract("//:\n2:3:4"))
+                .isInstanceOf(InvalidInputException.class)
+                .hasMessage(ErrorMessage.DUPLICATE_DEFAULT_DELIMITER);
+    }
 }
