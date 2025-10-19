@@ -19,8 +19,8 @@ public class InputValidator {
             throw new InvalidInputException(ErrorMessage.EMPTY_CUSTOM_DELIMITER);
         }
 
-        if (customDelimiter.length() > 1) {
-            throw new InvalidInputException(ErrorMessage.MULTIPLE_CHAR_DELIMITER);
+        if (customDelimiter.length() != 1 || Character.isWhitespace(customDelimiter.charAt(0))) {
+            throw new InvalidInputException(ErrorMessage.INVALID_CUSTOM_DELIMITER_FORMAT);
         }
 
         String numbersPart = input.substring(nlIdx + 1);
