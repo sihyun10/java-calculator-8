@@ -6,6 +6,8 @@ import calculator.exception.InvalidInputException;
 public class InputValidator {
 
     private static final String NEWLINE = "\n";
+    private static final String comma = ",";
+    private static final String colon = ":";
 
     public static void customDelimiterSyntax(String input) {
         int nlIdx = input.indexOf(NEWLINE);
@@ -21,6 +23,10 @@ public class InputValidator {
 
         if (customDelimiter.length() != 1 || Character.isWhitespace(customDelimiter.charAt(0))) {
             throw new InvalidInputException(ErrorMessage.INVALID_CUSTOM_DELIMITER_FORMAT);
+        }
+
+        if (customDelimiter.equals(comma) || customDelimiter.equals(colon)) {
+            throw new InvalidInputException(ErrorMessage.DUPLICATE_DEFAULT_DELIMITER);
         }
 
         String numbersPart = input.substring(nlIdx + 1);
