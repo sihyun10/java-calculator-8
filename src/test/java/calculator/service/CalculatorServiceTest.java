@@ -64,7 +64,19 @@ class CalculatorServiceTest {
         // when & then
         assertThatThrownBy(() -> calculatorService.calculate(input))
                 .isInstanceOf(InvalidInputException.class)
-                .hasMessage(ErrorMessage.MULTIPLE_CHAR_DELIMITER);
+                .hasMessage(ErrorMessage.INVALID_CUSTOM_DELIMITER_FORMAT);
+    }
+
+    @Test
+    @DisplayName("커스텀 구분자 공백으로 입력될 경우 예외 발생")
+    void 커스텀구분자_공백_입력_예외발생() {
+        // given
+        String input = "// \n3 2 4";
+
+        // when & then
+        assertThatThrownBy(() -> calculatorService.calculate(input))
+                .isInstanceOf(InvalidInputException.class)
+                .hasMessage(ErrorMessage.INVALID_CUSTOM_DELIMITER_FORMAT);
     }
 
     private void assertCalculatedResult(String input, int expected) {

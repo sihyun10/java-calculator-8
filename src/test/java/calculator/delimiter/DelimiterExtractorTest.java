@@ -72,6 +72,6 @@ class DelimiterExtractorTest {
     void 커스텀구분자_두글자_이상_예외() {
         assertThatThrownBy(() -> delimiterExtractor.extract("//:'\n2:3'5"))
                 .isInstanceOf(InvalidInputException.class)
-                .hasMessage(ErrorMessage.MULTIPLE_CHAR_DELIMITER);
+                .hasMessage(ErrorMessage.INVALID_CUSTOM_DELIMITER_FORMAT);
     }
 }
