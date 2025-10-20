@@ -18,8 +18,4 @@ public class Numbers {
                 .mapToInt(Number::getValue)
                 .sum();
     }
-
-    public List<Number> getNumbers() {
-        return List.copyOf(numbers);
-    }
 }
